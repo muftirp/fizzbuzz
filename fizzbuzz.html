@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h1>Get FizzBuzz Result</h1>
+      <!-- Form untuk menampung data -->
+      Type a number: 
+      <input type="text" id="txtNumber">
+
+      <button id="btnSubmit">Click Here</button>
+      <hr>
+      <div id="containerResult">
+          <!-- Hasil cetak disini -->
+      </div>
+</body>
+
+<script>
+const btnSubmit = document.getElementById('btnSubmit')
+const containerResult = document.getElementById('containerResult')
+
+function getFizbuzz(number){
+    if(number === "" || number === "0"){
+        return "invalid input";
+    }
+
+    if(number == 89){
+        return number;
+    }
+
+    if(number % 3 == 0 && number % 5 == 0){
+        return "FizBuzz";
+    }else if(number % 3 == 0){
+        return "Fizz";
+    }else if(number % 5 == 0){
+        return "Buzz";
+    }else{
+        return number;
+    }
+}
+
+btnSubmit.addEventListener('click', function() {
+    let input = document.getElementById('txtNumber').value
+    //console.log(input);
+    let text = getFizbuzz(input)
+    const containerText = document.createElement('p')
+    containerText.innerHTML = text+"(" +input+")";
+    containerResult.appendChild(containerText)
+
+});
+</script>
+</script>
+</html>
+
+
